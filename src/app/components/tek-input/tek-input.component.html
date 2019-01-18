@@ -1,2 +1,4 @@
-<input class="tek-input" #name (change)="inputChange(name.value)">
-<div [ngClass]="inputClass">Name</div>
+<div class="tek-input__wrap">
+  <input class="tek-input" #input [ngStyle]="tekInputService.inputStyles" (change)="inputChange(input.value)">
+  <div [ngClass]="inputClass" [ngStyle]="tekInputService.titleStyles" (click)="titleClick()">{{tekInputService.title}}</div>
+</div>

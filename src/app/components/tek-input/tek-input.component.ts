@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, ViewChild, ElementRef } from "@angular/core";
+import { TekInputService } from './tek-input.service';
 
 @Component({
   selector: "tek-input",
@@ -7,6 +8,11 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class TekInputComponent {
   inputClass: String = "tek-input__title";
+  @ViewChild("input") inputField: ElementRef;
+
+  constructor(public tekInputService: TekInputService){
+
+  }
 
   inputChange(input) {
     if (input != "") {
@@ -14,5 +20,9 @@ export class TekInputComponent {
     } else {
       this.inputClass = "tek-input__title";
     }
+  }
+
+  titleClick(){
+    this.inputField.nativeElement.focus();
   }
 }
